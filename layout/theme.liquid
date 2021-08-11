@@ -47,7 +47,7 @@
 
         --color-base-text: {{ settings.colors_text }};
         --color-base-text-rgb: {{ settings.colors_text | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-        --color-base-background-1: {{ settings.colors_background_1 }};
+        --color-base-background-1: '{{ settings.colors_background_1 }}';
         --color-base-background-1-rgb: {{ settings.colors_background_1 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
         --color-base-background-2: {{ settings.colors_background_2 }};
         --color-base-background-2-rgb: {{ settings.colors_background_2 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
@@ -92,6 +92,7 @@
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
+        
       }
 
       @media screen and (min-width: 750px) {

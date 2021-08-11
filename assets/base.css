@@ -1653,6 +1653,7 @@ input[type='checkbox'] {
   padding: 1rem 2rem;
   margin: 0;
   letter-spacing: 0.1rem;
+ 
 }
 
 /* section-header */
@@ -1672,6 +1673,7 @@ input[type='checkbox'] {
 
 #shopify-section-header.animate {
   transition: transform 0.15s ease-out;
+  background-color: white;
 }
 
 /* Main Header Layout */
@@ -1794,6 +1796,8 @@ input[type='checkbox'] {
   display: flex;
   grid-area: icons;
   justify-self: end;
+
+  color: #093559!important;
 }
 
 .header__icon:not(.header__icon--summary),
@@ -1996,11 +2000,14 @@ details[open] > .header__icon--menu .icon-hamburger {
 .header__menu-item {
   padding: 1.2rem;
   text-decoration: none;
-  color: var(--color-foreground-75);
+  /* color: var(--color-foreground-75); */
+  color: #093559;
 }
 
 .header__menu-item:hover {
-  color: var(--color-foreground);
+  /* color: var(--color-foreground); */
+  color: #093559;
+  font-weight: bold;
 }
 
 .header__menu-item span {
@@ -2010,13 +2017,17 @@ details[open] > .header__icon--menu .icon-hamburger {
 .header__menu-item:hover span {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
+  text-decoration-color: #093559;
 }
 
 .header__active-menu-item {
   transition: text-decoration-thickness var(--duration-short) ease;
-  color: var(--color-foreground);
+  /* color: var(--color-foreground); */
+  color: #093559;
   text-decoration: underline;
   text-underline-offset: 0.3rem;
+  font-weight: bold;
+  text-decoration-color: #093559;
 }
 
 .header__menu-item:hover .header__active-menu-item {
@@ -2071,4 +2082,13 @@ details-disclosure > details {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Customize CSS */
+.header-wrapper{
+  /* background-color: #093559; */
+}
+
+.announcement-bar__message{
+  background-color: #093559;
 }
