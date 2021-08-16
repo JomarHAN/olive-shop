@@ -2001,7 +2001,7 @@ details[open] > .header__icon--menu .icon-hamburger {
   padding: 1.2rem;
   text-decoration: none;
   /* color: var(--color-foreground-75); */
-  color: #093559;
+  color: #093559;;
 }
 
 .header__menu-item:hover {
