@@ -2092,3 +2092,16 @@ details-disclosure > details {
 .announcement-bar__message{
   background-color: #093559;
 }
+
+.header__menu-item-customize{
+  color: white;
+}
+
+.header__menu-item-customize:hover{
+  color: #093559;
+  background-color: white;
+}
+
+.list-menu--disclosure{
+  width: 25rem!important;
+}
