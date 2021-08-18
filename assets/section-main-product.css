@@ -60,7 +60,7 @@
 }
 
 .shopify-payment-button__button--unbranded {
-  background-color: var(--color-button-background);
+  background-color: #0d3559d9;
   box-shadow: 0 0 0 0.1rem var(--color-button-border);
   font-size: 1.4rem;
   line-height: 1.2;
@@ -158,7 +158,7 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input input[type='radio']:checked + label {
-  background-color: var(--color-foreground);
+  background-color: #0d3559d9;
   color: var(--color-background);
 }
 

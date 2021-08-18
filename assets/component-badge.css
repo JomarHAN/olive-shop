@@ -7,8 +7,9 @@
   line-height: 1;
   padding: 0.6rem 1.6rem;
   text-align: center;
-  background-color: var(--color-badge-background);
-  border-color: var(--color-badge-border);
+  background-color: red;
+  border-color: red;
   color: var(--color-foreground);
   word-break: break-word;
+  font-weight: bolder;
 }
