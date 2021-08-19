@@ -1,0 +1,9 @@
+{
+    "sections":{
+        "main":{
+            "type":"main-collection-event",
+            "settings":{}
+        }
+    },
+    "order":["main"]
+}

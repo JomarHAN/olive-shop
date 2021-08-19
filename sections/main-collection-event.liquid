@@ -1,0 +1,16 @@
+<div class="page-width page-width--narrow">
+    <h1>List of collection</h1> 
+
+    {% for collection in collections %}
+        {% if collection.title == 'Season Collections' %}
+            {% assign list_products = collection.products %}
+            {% if list_products != blank %}
+                {% for product in list_products %}
+                    <img src="{{product.featured_image | img_url:'300x'}}">
+                    <p>{{product.title}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+</div>
