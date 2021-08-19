@@ -116,6 +116,7 @@
   align-items: center;
   text-align: center;
   width: 100%;
+  background-color: white;
 }
 
 .banner__box > * + .banner__buttons {
@@ -193,4 +194,5 @@
 
 .banner__heading {
   margin-bottom: 0;
+  color: #5d5d5d;
 }
