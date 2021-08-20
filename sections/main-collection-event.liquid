@@ -1,16 +1,82 @@
-<div class="page-width page-width--narrow">
-    <h1>List of collection</h1> 
-
+<div class="page-width">
+    <h1>{{section.settings.event_title}}</h1> 
     {% for collection in collections %}
-        {% if collection.title == 'Season Collections' %}
-            {% assign list_products = collection.products %}
-            {% if list_products != blank %}
-                {% for product in list_products %}
-                    <img src="{{product.featured_image | img_url:'300x'}}">
-                    <p>{{product.title}}</p>
-                {% endfor %}
-            {% endif %}
-        {% endif %}
-    {% endfor %}
 
+       
+        {% if collection.title == 'Season Collections' %}
+        {% assign list_products = collection.products %}
+        <div class="collection__list-products">
+            {% if list_products != blank %}
+            {% for product in list_products %}
+            <div class="collection__product">
+                <img class="collection__product-img" src="{{product.featured_image | img_url:'300x'}}" width="230px" height="270px">
+                <h3 class="collection__product-title">{{product.title}}</h3>
+                <div class="collection__product-bottom">
+                    <p class="collection__product-bottom-price" >${{product.price | divided_by: 100.00}}</p>
+                    <p class="collection__product-bottom-vendor" >{{product.vendor}}</p>
+                </div>
+            </div>
+            
+            {% endfor %}
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% endfor %}
 </div>
+
+<script>
+    console.log({{collections | json}});
+</script>
+
+<!-- CSS -->
+<style>
+    .collection__list-products{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .collection__product{
+        padding: 5px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        transition: 0.2s ease-in-out;
+    }
+
+    .collection__product:hover img{
+        transform: scale(1.1);
+        overflow: hidden;
+    }
+
+    .collection__product > *{
+        margin: 3px;
+    }
+    
+    .collection__product-bottom > *{
+        margin: 0;
+    }
+    .collection__product-bottom{
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Collection Event",
+    "settings":[
+        {
+            "type": "text",
+            "id": "event_name",
+            "label": "Write Event Name"
+        },
+        {
+            "type": "text",
+            "id": "event_title",
+            "label": "Event Title"
+        }
+    ]
+}
+{% endschema %}
