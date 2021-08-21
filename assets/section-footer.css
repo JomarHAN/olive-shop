@@ -47,7 +47,7 @@
 }
 
 .footer__content-bottom {
-  border-top: solid 0.1rem var(--color-foreground-20);
+  border-top: solid 0.1rem whitesmoke;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -534,4 +534,19 @@ footer details[open] summary ~ * {
 
 .footer .disclosure__link--active {
   text-decoration: underline;
+}
+
+/* Footer customize */
+.footer-customize{
+  background-color: #093559;
+}
+.footer-customize > *,
+.footer-block__details-content .list-menu__item--link,
+.footer-block__heading-customize,
+.list-social-customize li a{
+  color: whitesmoke!important;
+}
+.footer-block__heading-customize{
+  font-size: 30px;
+  font-weight: bold;
 }
