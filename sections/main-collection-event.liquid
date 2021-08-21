@@ -1,82 +1,29 @@
-<div class="page-width">
-    <h1>{{section.settings.event_title}}</h1> 
-    {% for collection in collections %}
+<link rel="stylesheet" href="{{ 'section-main-page.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
 
-       
-        {% if collection.title == 'Season Collections' %}
-        {% assign list_products = collection.products %}
-        <div class="collection__list-products">
-            {% if list_products != blank %}
-            {% for product in list_products %}
-            <div class="collection__product">
-                <img class="collection__product-img" src="{{product.featured_image | img_url:'300x'}}" width="230px" height="270px">
-                <h3 class="collection__product-title">{{product.title}}</h3>
-                <div class="collection__product-bottom">
-                    <p class="collection__product-bottom-price" >${{product.price | divided_by: 100.00}}</p>
-                    <p class="collection__product-bottom-vendor" >{{product.vendor}}</p>
-                </div>
-            </div>
-            
-            {% endfor %}
-            {% endif %}
-        </div>
-        {% endif %}
+<noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
-        {% endfor %}
+<div class="page-width page-width--narrow">
+  <h1 class="main-page-title page-title h0">
+    {{ section.settings.collection_title }}
+  </h1>
+  <div class="rte">
+    {{ page.content }}
+  </div>
 </div>
-
-<script>
-    console.log({{collections | json}});
-</script>
-
-<!-- CSS -->
-<style>
-    .collection__list-products{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .collection__product{
-        padding: 5px;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
-        transition: 0.2s ease-in-out;
-    }
-
-    .collection__product:hover img{
-        transform: scale(1.1);
-        overflow: hidden;
-    }
-
-    .collection__product > *{
-        margin: 3px;
-    }
-    
-    .collection__product-bottom > *{
-        margin: 0;
-    }
-    .collection__product-bottom{
-        display: flex;
-        justify-content: space-between;
-    }
-</style>
 
 {% schema %}
 {
-    "name": "Collection Event",
-    "settings":[
-        {
-            "type": "text",
-            "id": "event_name",
-            "label": "Write Event Name"
-        },
-        {
-            "type": "text",
-            "id": "event_title",
-            "label": "Event Title"
-        }
-    ]
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings":[
+    {
+        "type":"text",
+        "id": "collection_title",
+        "label": "Collection Title"
+    }
+  ]
 }
 {% endschema %}
