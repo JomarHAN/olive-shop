@@ -1155,6 +1155,7 @@ deferred-media {
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
   line-height: 1.2;
+  color: white;
 }
 
 .button--tertiary {
@@ -1593,7 +1594,7 @@ input[type='checkbox'] {
 
 .cart-count-bubble {
   position: absolute;
-  background-color: var(--color-base-accent-1);
+  background-color: #093559;
   color: var(--color-base-solid-button-labels);
   height: 1.7rem;
   width: 1.7rem;
