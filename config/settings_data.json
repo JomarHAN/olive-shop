@@ -1,5 +1,9 @@
 {
   "current": {
+    "social_twitter_link": "https:\/\/twitter.com\/shopify",
+    "social_facebook_link": "https:\/\/facebook.com\/shopify",
+    "social_instagram_link": "http:\/\/instagram.com\/shopify",
+    "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -35,19 +39,27 @@
           "footer-0": {
             "type": "link_list",
             "settings": {
-              "heading": "Quick links",
+              "heading": "Legal Notice",
               "menu": "footer"
+            }
+          },
+          "ba751310-4fc2-4dbc-8f8e-6efe861bcb69": {
+            "type": "text",
+            "settings": {
+              "heading": "Information",
+              "subtext": "<p><strong>Date:<\/strong> <em>Mon - Fri<\/em><\/p><p><strong>Time:<\/strong> <em>9:00 AM - 8:00 PM<\/em><\/p><p><strong>Email:<\/strong> <em>support@oliveshop.org<\/em><\/p><p><strong>Address:<\/strong> <em>245 Windward Rd, Tampa, FL 33605<\/em><\/p>"
             }
           }
         },
         "block_order": [
-          "footer-0"
+          "footer-0",
+          "ba751310-4fc2-4dbc-8f8e-6efe861bcb69"
         ],
         "settings": {
           "color_scheme": "background-1",
           "newsletter_enable": true,
-          "newsletter_heading": "Sign up to our emails",
-          "show_social": false,
+          "newsletter_heading": "Sign up to get discount announments",
+          "show_social": true,
           "enable_country_selector": true,
           "enable_language_selector": true,
           "payment_enable": true
