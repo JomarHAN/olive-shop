@@ -550,3 +550,21 @@ footer details[open] summary ~ * {
   font-size: 30px;
   font-weight: bold;
 }
+
+.footer-block__heading{
+  color: white;
+  font-weight: bold;
+}
+
+.footer-input__customize{
+  background-color: white;
+}
+
+.footer-block__newsletter .newsletter-form__button.button{
+  border: 1px solid #ffff;
+  font-weight: bold;
+}
+.footer-block__newsletter .newsletter-form__button.button:hover{
+  background-color: #ffff;
+  color: #093559;
+}
