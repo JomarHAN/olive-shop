@@ -1,0 +1,91 @@
+<div class="page-width">
+    <div class="title-wrapper-with-link title-wrapper--self-padded-mobile{% if section.settings.heading == blank %} title-wrapper-with-link--no-heading{% endif %}">
+      <h2 class="title">
+        {{ section.settings.heading | escape }}
+      </h2>
+    </div>
+    <div class="testimonial-slider">
+    {% for block in section.blocks %}
+   
+    <div class="testimonial-card">
+        <div class="testimonial-icon">
+            {% render 'icon-quotes' %}
+        </div>
+        <div class="testimonial-text">
+            <i>
+                {% if block.settings.testimonial == blank %}
+                    No Text
+                {% else %}
+                    {{block.settings.testimonial}}
+                {% endif %}
+            </i>
+        </div>
+        <div class="testimonial-image">
+            <img
+                src="{%- if block.settings.image == blank -%}https://via.placeholder.com/150x150.png{%else%}{{ block.settings.image | img_url: '150x' }}{%endif%}"
+                height="150px"
+                width="150px"
+                loading="lazy"
+            >        
+        </div>
+        <div class="testimonial-name">
+            <b>
+                {% if block.settings.name == blank %}
+                    No Name
+                {% else %}
+                    {{block.settings.name}}
+                {% endif %}
+            </b>
+        </div>
+    </div>
+         
+    {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Testimonial Slider",
+    "settings":[
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Testimonial"
+        }
+    ],
+    "blocks":[
+        {
+            "type": "testimonial",
+            "name": "Testimonial",
+            "settings":[
+                {
+                    "type": "richtext",
+                    "label": "Testimonial",
+                    "id": "testimonial"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Customer's Picture"
+                },
+                {
+                    "type": "text",
+                    "id": "name",
+                    "label": "Customer's name"
+                }
+            ]
+        }
+    ],
+    "presets":[
+        {
+            "name": "Testimonial Slider",
+            "blocks": [
+                {
+                    "type": "testimonial"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
