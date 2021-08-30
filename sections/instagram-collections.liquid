@@ -1,0 +1,175 @@
+<div class="test-instagram {% if section.settings.title == blank %} no-heading{% endif %}">
+  <div class="page-width">
+    <div class="title-wrapper-with-link title-wrapper--self-padded-mobile{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}">
+      <h2 class="title">
+        {{ section.settings.title | escape }}
+      </h2>
+      
+    </div>
+    <slider-component class="slider-mobile-gutter">
+      <ul class="multicolumn-list grid grid--1-col grid--3-col-tablet grid--4-col-desktop slider slider--mobile grid--peek"
+        id="Slider-{{ section.id }}"
+        role="list"
+      >
+
+        <li class="multicolumn-list__item grid__item slider__slide center">
+          <div class="multicolumn-card">
+                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--full-width">
+                  <div class="media media--transparent media--portrait">
+                    <img
+                      srcset="{%- if section.settings.image_1.width >= 275 -%}{{ section.settings.image_1 | img_url: '275x' }} 275w,{%- endif -%}
+                        {%- if section.settings.image_1.width >= 550 -%}{{ section.settings.image_1 | img_url: '550x' }} 550w,{%- endif -%}
+                        {%- if section.settings.image_1.width >= 710 -%}{{ section.settings.image_1 | img_url: '710x' }} 710w,{%- endif -%}
+                        {%- if section.settings.image_1.width >= 1420 -%}{{ section.settings.image_1 | img_url: '1420x' }} 1420w,{%- endif -%}"
+                      src="{%- if section.settings.image_1 == blank -%}https://via.placeholder.com/310x400.png{%else%}{{ section.settings.image_1 | img_url: '550x' }}{%endif%}"
+                  
+                      alt="{{ section.settings.title }}"
+                      height="{{ section.settings.image_1.height }}"
+                      width="{{ section.settings.image_1.width }}"
+                      loading="lazy"
+                    >
+                  </div>
+                </div>
+          </div>
+        </li> 
+        <li class="multicolumn-list__item grid__item slider__slide center">
+          <div class="multicolumn-card">
+                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--full-width">
+                  <div class="media media--transparent media--portrait">
+                    <img
+                      srcset="{%- if section.settings.image_2.width >= 275 -%}{{ section.settings.image_2 | img_url: '275x' }} 275w,{%- endif -%}
+                        {%- if section.settings.image_2.width >= 550 -%}{{ section.settings.image_2 | img_url: '550x' }} 550w,{%- endif -%}
+                        {%- if section.settings.image_2.width >= 710 -%}{{ section.settings.image_2 | img_url: '710x' }} 710w,{%- endif -%}
+                        {%- if section.settings.image_2.width >= 1420 -%}{{ section.settings.image_2 | img_url: '1420x' }} 1420w,{%- endif -%}"
+                      src="{%- if section.settings.image_2 == blank -%}https://via.placeholder.com/310x400.png{%else%}{{ section.settings.image_2 | img_url: '550x' }}{%endif%}"
+                  
+                      alt="{{ section.settings.title }}"
+                      height="{{ section.settings.image_2.height }}"
+                      width="{{ section.settings.image_2.width }}"
+                      loading="lazy"
+                    >
+                  </div>
+                </div>
+          </div>
+        </li> 
+        <li class="multicolumn-list__item grid__item slider__slide center">
+          <div class="multicolumn-card">
+                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--full-width">
+                  <div class="media media--transparent media--portrait">
+                    <img
+                      srcset="{%- if section.settings.image_3.width >= 275 -%}{{ section.settings.image_3 | img_url: '275x' }} 275w,{%- endif -%}
+                        {%- if section.settings.image_3.width >= 550 -%}{{ section.settings.image_3 | img_url: '550x' }} 550w,{%- endif -%}
+                        {%- if section.settings.image_3.width >= 710 -%}{{ section.settings.image_3 | img_url: '710x' }} 710w,{%- endif -%}
+                        {%- if section.settings.image_3.width >= 1420 -%}{{ section.settings.image_3 | img_url: '1420x' }} 1420w,{%- endif -%}"
+                      src="{%- if section.settings.image_3 == blank -%}https://via.placeholder.com/310x400.png{%else%}{{ section.settings.image_3 | img_url: '550x' }}{%endif%}"
+                  
+                      alt="{{ section.settings.title }}"
+                      height="{{ section.settings.image_3.height }}"
+                      width="{{ section.settings.image_3.width }}"
+                      loading="lazy"
+                    >
+                  </div>
+                </div>
+          </div>
+        </li> 
+        <li class="multicolumn-list__item grid__item slider__slide center">
+          <div class="multicolumn-card">
+                <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--full-width">
+                  <div class="media media--transparent media--portrait">
+                    <img
+                      srcset="{%- if section.settings.image_4.width >= 275 -%}{{ section.settings.image_4 | img_url: '275x' }} 275w,{%- endif -%}
+                        {%- if section.settings.image_4.width >= 550 -%}{{ section.settings.image_4 | img_url: '550x' }} 550w,{%- endif -%}
+                        {%- if section.settings.image_4.width >= 710 -%}{{ section.settings.image_4 | img_url: '710x' }} 710w,{%- endif -%}
+                        {%- if section.settings.image_4.width >= 1420 -%}{{ section.settings.image_4 | img_url: '1420x' }} 1420w,{%- endif -%}"
+                      src="{%- if section.settings.image_4 == blank -%}https://via.placeholder.com/310x400.png{%else%}{{ section.settings.image_4 | img_url: '550x' }}{%endif%}"
+                      sizes="(min-width: 990px) 550px,
+                        (min-width: 750px) 550px,
+                        calc(100vw - 30px)"
+                      alt="{{ section.settings.title }}"
+                      height="{{ section.settings.image_4.height }}"
+                      width="{{ section.settings.image_4.width }}"
+                      loading="lazy"
+                    >
+                  </div>
+                </div>
+          </div>
+        </li> 
+
+    </ul>
+
+
+        <div class="slider-buttons no-js-hidden medium-hide">
+          <div class="slider-counter caption">
+            <span class="slider-counter--current">1</span>
+            <span aria-hidden="true"> / </span>
+            <span class="visually-hidden">{{ 'accessibility.of' | t }}</span>
+            <span class="slider-counter--total">{{ section.blocks.size }}</span>
+          </div>
+          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+          <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
+        </div>
+
+    </slider-component>
+    <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
+      {%- if section.settings.button_label != blank -%}
+        <a class="button"{% if section.settings.button_link == blank %} aria-disabled="true" role="link"{% else %} href="{{ section.settings.button_link }}"{% endif %}>
+          <i>
+            <b>
+
+              {{ section.settings.button_label | escape }}
+            </b>
+          </i>
+        </a>
+      {%- endif-%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Instagram Collection",
+  "settings":[
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Follow on Instagram",
+      "label": "Instagram Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Instagram Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Instagram Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Instagram Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Instagram Image 4"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets":[
+    {
+      "name": "Instagram Collection"
+    }
+  ]
+}
+{% endschema %}
