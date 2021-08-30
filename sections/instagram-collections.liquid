@@ -1,4 +1,13 @@
-<div class="test-instagram {% if section.settings.title == blank %} no-heading{% endif %}">
+<style>
+  .instagram-collections{
+    margin: 5rem 0;
+  }
+  .instagram_button{
+    margin: 2rem 0;
+  }
+</style>
+
+<div class="instagram-collections {% if section.settings.title == blank %} no-heading{% endif %}">
   <div class="page-width">
     <div class="title-wrapper-with-link title-wrapper--self-padded-mobile{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}">
       <h2 class="title">
@@ -11,7 +20,6 @@
         id="Slider-{{ section.id }}"
         role="list"
       >
-
         <li class="multicolumn-list__item grid__item slider__slide center">
           <div class="multicolumn-card">
                 <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--full-width">
@@ -96,8 +104,6 @@
         </li> 
 
     </ul>
-
-
         <div class="slider-buttons no-js-hidden medium-hide">
           <div class="slider-counter caption">
             <span class="slider-counter--current">1</span>
@@ -110,7 +116,7 @@
         </div>
 
     </slider-component>
-    <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
+    <div class="center instagram_button">
       {%- if section.settings.button_label != blank -%}
         <a class="button"{% if section.settings.button_link == blank %} aria-disabled="true" role="link"{% else %} href="{{ section.settings.button_link }}"{% endif %}>
           <i>
