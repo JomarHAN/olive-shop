@@ -16,7 +16,7 @@
                 {% if block.settings.testimonial == blank %}
                     No Text
                 {% else %}
-                    {{block.settings.testimonial}}
+                    {{block.settings.testimonial | truncate: 120, '...' }}
                 {% endif %}
             </i>
         </div>
@@ -30,10 +30,10 @@
         </div>
         <div class="testimonial-name">
             <b>
-                {% if block.settings.name == blank %}
+                {% if block.settings.title == blank %}
                     No Name
                 {% else %}
-                    {{block.settings.name}}
+                    {{block.settings.title}}
                 {% endif %}
             </b>
         </div>
@@ -71,7 +71,7 @@
                 },
                 {
                     "type": "text",
-                    "id": "name",
+                    "id": "title",
                     "label": "Customer's name"
                 }
             ]
