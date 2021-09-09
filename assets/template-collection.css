@@ -232,7 +232,7 @@
 }
 
 .facets__display {
-  background-color: var(--color-background);
+  background-color: white;
   position: absolute;
   border: 1px solid var(--color-foreground-20);
   top: calc(100% + 0.5rem);
@@ -240,6 +240,7 @@
   width: 35rem;
   max-height: 55rem;
   overflow-y: auto;
+  font-weight: bold;
 }
 
 .facets__header {
@@ -350,7 +351,9 @@ button.facets__button {
 }
 
 a.active-facets__button {
-  color: var(--color-foreground);
+  color: #0d3558;
+  font-weight: bold;
+  background-color: white;
   box-shadow: 0 0 0 0.1rem var(--color-foreground);
   border-radius: 2.6rem;
   font-size: 1.2rem;
@@ -413,7 +416,8 @@ a.active-facets__button:focus {
   height: 1.7rem;
   border-radius: 50%;
   background-color: var(--color-button-border);
-  color: var(--color-background);
+  color: white;
+  font-weight: bold;
   margin-left: 0.7rem;
 }
 
