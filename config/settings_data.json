@@ -4,6 +4,8 @@
     "social_facebook_link": "https:\/\/facebook.com\/shopify",
     "social_instagram_link": "http:\/\/instagram.com\/shopify",
     "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
+    "checkout_logo_image": "shopify:\/\/shop_images\/olive-logo-1.png",
+    "checkout_logo_position": "center",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",

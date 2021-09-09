@@ -48,6 +48,33 @@
         "share": {
           "type": "share",
           "settings": {}
+        },
+        "f0ac58a4-2641-4f97-ae98-9f5f25757040": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Detail",
+            "content": "<p>{{ product.metafields.my_fields.product_detail | metafield_tag }}<\/p>",
+            "page": "",
+            "icon": "check_mark"
+          }
+        },
+        "e5a894f8-29f6-4646-af19-3e19928488bc": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping Information",
+            "content": "",
+            "page": "shipping-information",
+            "icon": "truck"
+          }
+        },
+        "eef83f64-067d-44ee-a22c-0e87456baf38": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Return: Store Credit",
+            "content": "",
+            "page": "return-store-credit",
+            "icon": "return"
+          }
         }
       },
       "block_order": [
@@ -59,17 +86,25 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "f0ac58a4-2641-4f97-ae98-9f5f25757040",
+        "e5a894f8-29f6-4646-af19-3e19928488bc",
+        "eef83f64-067d-44ee-a22c-0e87456baf38"
       ],
       "settings": {
         "enable_sticky_info": true,
         "enable_video_looping": false
       }
     },
-
-    "product-recommendations":{
+    "product-recommendations": {
       "type": "product-recommendations",
-      "settings":{}
+      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "portrait",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false
+      }
     }
   },
   "order": [

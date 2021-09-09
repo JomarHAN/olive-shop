@@ -123,7 +123,7 @@
           "settings": {
             "testimonial": "<p>and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
             "image": "shopify:\/\/shop_images\/insta-10.jpg",
-            "name": "Theresa"
+            "title": "Theresa"
           }
         },
         "427a4f25-13f0-4954-906a-4c8cb77ef9f2": {
@@ -131,7 +131,7 @@
           "settings": {
             "testimonial": "<p>and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
             "image": "shopify:\/\/shop_images\/insta-7.jpg",
-            "name": "Celine"
+            "title": "Celine"
           }
         },
         "5bd935e9-adbb-4e8a-8826-af739475813a": {
@@ -139,17 +139,26 @@
           "settings": {
             "testimonial": "<p>and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
             "image": "shopify:\/\/shop_images\/insta-6.jpg",
-            "name": "Anna"
+            "title": "Cecilia"
+          }
+        },
+        "ea348003-4f57-42e1-83f9-196b6eac60e6": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
+            "image": "shopify:\/\/shop_images\/insta-4.jpg",
+            "title": "Lucia"
           }
         }
       },
       "block_order": [
         "163036007711430258-0",
         "427a4f25-13f0-4954-906a-4c8cb77ef9f2",
-        "5bd935e9-adbb-4e8a-8826-af739475813a"
+        "5bd935e9-adbb-4e8a-8826-af739475813a",
+        "ea348003-4f57-42e1-83f9-196b6eac60e6"
       ],
       "settings": {
-        "heading": "Testimonial"
+        "heading": "Customer Satisfaction"
       }
     }
   },
