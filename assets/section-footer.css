@@ -568,3 +568,9 @@ footer details[open] summary ~ * {
   background-color: #ffff;
   color: #093559;
 }
+
+.footer__title-customize{
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+}
