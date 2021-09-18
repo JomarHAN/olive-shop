@@ -1,3 +1,9 @@
+
+
+
+    
+
+
 {% comment %}theme-check-disable TemplateLength{% endcomment %}
 {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
@@ -94,6 +100,26 @@
                 {{ product.description }}
               </div>
             {%- endif -%}
+
+            <!-- Mommy And Me -->
+          {%- when 'like-mom-like-me' -%}
+            {% assign mommy = product.title %}
+            {% assign isMini = product.title | slice: 0,5 %}
+            {% if isMini == "Mini " %}
+              {% assign mommy = mommy | remove: isMini%}
+              {% render 'like-mom-like-me', 
+                collections: collections, 
+                product: product, 
+                mommy: mommy
+              %}
+            {% else %}
+              {% render 'like-mom-like-me', 
+                collections: collections, 
+                product: product, 
+                mommy: mommy
+              %}
+            {% endif %}
+            
           {%- when 'collapsible_tab' -%}
             <div class="product__accordion accordion">
               <details>
@@ -562,6 +588,12 @@
           "content": "t:sections.main-product.blocks.share.settings.title_info.content"
         }
       ]
+    },
+    {
+      "type": "like-mom-like-me",
+      "name": "Like Mom Like Me",
+      "limit": 1,
+      "settings": []
     },
     {
       "type": "collapsible_tab",
