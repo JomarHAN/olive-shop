@@ -812,3 +812,18 @@ a.product__text {
   margin: 0;
   width: 2.2rem;
 }
+
+/* CSS Customize */
+.product-media-modal__content > img{
+  width: 100vw;
+  padding: 10px;
+}
+
+.product-media-modal__content{
+  background-color: rgb(0 0 0 / 70%);
+}
+
+.product-media-modal__toggle{
+  border-color: white;
+  color: white;
+}

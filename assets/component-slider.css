@@ -95,7 +95,7 @@ slider-component .slider-buttons {
 
 .slider-buttons.slider-buttons--overlay {
   border: 0.1rem solid var(--color-foreground-8);
-  background-color: var(--color-background);
+  background-color: white;
 }
 
 .slider-mobile-gutter .slider-buttons {
