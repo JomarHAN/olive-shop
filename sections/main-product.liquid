@@ -1,16 +1,96 @@
 <style>
-  .images_display-group{
+  .images__group{
     display: flex;
   }
-  .images_display-viewing{
-    flex: 0.9;
+
+  .images__group-display{
+    flex: 0.8;
+    position: relative;
+    padding: 0 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 45px;
   }
-  .images_display-list{
-    flex: 0.1;
+
+  .images__group-list{
+    flex: 0.2;
+    height: 600px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .images_display-item{
-    height: 120px;
+
+  /* List left */
+  .images__group-list--item{
+    height: 25%;
+    margin: 10px;
+    cursor: pointer;
   }
+  .images__group-list--item img.active{
+    border: 4px solid #325875;
+  }
+
+  /* Display Right */
+  .images__group-display--item{
+    position: absolute;
+  }
+  .images__group-display--item img{
+    opacity: 0;
+  }
+  .images__group-display--item img.showup{
+    opacity: 1;
+  }
+
+  .images__group-display--btn {
+    position: absolute;
+    z-index: 10;
+    font-size: xx-large;
+    background-color: #6363770d;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 99%;
+    cursor: pointer;
+    transition: 0.1s ease-in-out
+  }
+  .images__group-display--btn.btn-prev {
+    left: 0;
+  }
+  .images__group-display--btn.btn-next {
+    right: 0;
+  }
+
+  .images__group-display--btn.btn-prev:hover,
+  .images__group-display--btn.btn-next:hover {
+    background-color: #57577794;
+  }
+  
+  .images__group-display--btn.disappear {
+    visibility: hidden;
+  }
+
+  @media screen and (max-width: 749px){
+    .images__group-list{
+      display: none;
+    }
+    .images__group-display{
+      flex: 1;
+      height: 600px;
+      margin: 0;
+      overflow: hidden
+    }
+    .images__group-display--btn{
+      background-color: #ffffff6e;
+    }
+    .images__group-display--btn.btn-prev:hover,
+    .images__group-display--btn.btn-next:hover {
+      background-color: white;
+    }
+  }
+  
 </style>
 
 
@@ -67,13 +147,13 @@
           </div>
         </slider-component>
       {% else %}
-        <div class="images_display-group">
-          <div class="images_display-list">
+        <div class="images__group">
+          <div class="images__group-list">
               {% for media in product.media %}
-                <script>
-                  console.log({{media | json}});
-                </script>
-                <div class="images_display-item">
+              <!-- <script>
+                console.log({{media | json}});
+              </script> -->
+                <div class="images__group-list--item">
                   <img 
                     srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
                             {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
@@ -85,11 +165,32 @@
                     sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
                     loading="lazy"
                     alt="{{ media.preview_image.alt | escape }}"
+                    id="{{media.id}}"
                   />
                 </div>
               {% endfor %}
           </div>
-          <div class="images_display-viewing"></div>
+          <div class="images__group-display">
+            <div class="images__group-display--btn btn-prev"><</div>
+            {% for media in product.media %}
+              <div class="images__group-display--item">
+                <img 
+                  srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
+                          {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
+                          {% if media.preview_image.width >= 550 %}{{ media.preview_image | img_url: '550x' }} 550w,{% endif %}
+                          {% if media.preview_image.width >= 1100 %}{{ media.preview_image | img_url: '1100x' }} 1100w{% endif %}"
+                  src="{{media.src | image_url: '550x550'}}" 
+                  width="350"
+                  height="{{ 350 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+                  sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+                  loading="lazy"
+                  alt="{{ media.preview_image.alt | escape }}"
+                  id="{{media.id}}"
+                />
+              </div>
+            {% endfor %}
+            <div class="images__group-display--btn btn-next">></div>
+          </div>
         </div>
       {% endif %}
       {%- if first_3d_model -%}
@@ -512,6 +613,91 @@
 
   <script src="{{ 'product-model.js' | asset_url }}" defer></script>
 {%- endif -%}
+
+<!-- JS Slide Image -->
+<script type="text/javascript">
+  var imageList =  document.querySelectorAll('.images__group-list--item img')
+  var imageDisplay = document.querySelectorAll('.images__group-display--item img')
+  var btnNext = document.querySelector('.btn-next')
+  var btnPrev = document.querySelector('.btn-prev')
+  imageList[0].classList.add('active')
+  imageDisplay[0].classList.add('showup')
+  for (let i = 0; i < imageList.length; i++) {
+    imageList[i].addEventListener('click',() => {
+      for (let y = 0; y < imageList.length; y++) {
+        imageList[y].classList.remove('active')
+        imageDisplay[y].classList.remove('showup')
+      }
+      imageList[i].classList.add('active')
+      if(imageList[i].getAttribute('class') === 'active'){
+        imageDisplay[i].classList.add('showup')
+      }
+      if(i+1 === imageDisplay.length){
+        btnNext.classList.add('disappear')
+        btnPrev.classList.remove('disappear')
+      } else if(i === 0){
+        btnPrev.classList.add('disappear')
+        btnNext.classList.remove('disappear')
+      }
+    })
+  }
+
+  
+  for (let i = 0; i < imageDisplay.length; i++) {
+    if(imageDisplay[i].getAttribute('class') === 'showup'){
+      if(i===0){
+        btnPrev.classList.add('disappear')
+      }
+    }
+  }
+  btnNext.addEventListener('click', () => {
+    if(btnPrev.getAttribute('class').includes('disappear')){
+      btnPrev.classList.remove('disappear')
+    }
+    for (let i = 0; i < imageDisplay.length; i++) {
+      const e = imageDisplay[i];
+      if(e.getAttribute('class') === 'showup'){
+        for (let y = 0; y < imageDisplay.length; y++) {
+          imageDisplay[y].classList.remove('showup')
+          imageList[y].classList.remove('active')
+        }
+        if(i >= 0){
+          i++
+          imageDisplay[i].classList.add('showup')
+          imageList[i].classList.add('active')
+        }
+        if(i+1 === imageDisplay.length){
+          btnNext.classList.add('disappear')
+        }
+      }
+    }
+  })
+  btnPrev.addEventListener('click',() => {
+    // console.log(btnNext.getAttribute('class'));
+    if(btnNext.getAttribute('class').includes('disappear')){
+      btnNext.classList.remove('disappear')
+    }
+    for (let i = 0; i < imageDisplay.length; i++) {
+      const e = imageDisplay[i];
+      if(e.getAttribute('class') === 'showup'){
+        for (let y = 0; y < imageDisplay.length; y++) {
+          imageDisplay[y].classList.remove('showup')
+          imageList[y].classList.remove('active')
+        }
+        if(i <= imageDisplay.length){
+          i--
+          imageDisplay[i].classList.add('showup')
+          imageList[i].classList.add('active')
+        }
+        if(i === 0){
+          btnPrev.classList.add('disappear')
+        }
+      }
+    }
+  })
+</script>
+
+
 
 {% schema %}
 {
