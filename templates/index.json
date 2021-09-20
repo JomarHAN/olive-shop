@@ -6,14 +6,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Fall Collection"
+            "heading": "New Arrival"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop Now",
-            "button_link_1": "shopify:\/\/pages\/summer-collection",
+            "button_link_1": "shopify:\/\/collections\/new-arrival",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -36,13 +36,13 @@
     "featured_products": {
       "type": "featured-collection",
       "settings": {
-        "title": "New Arrival",
-        "collection": "women-new-arrival",
+        "title": "Women",
+        "collection": "t-shirt-shirt-blouse",
         "products_to_show": 4,
         "show_view_all": true,
         "swipe_on_mobile": false,
-        "image_ratio": "portrait",
-        "show_secondary_image": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
         "add_image_padding": false,
         "show_vendor": false
       }
@@ -50,13 +50,13 @@
     "1630179704a5d68a85": {
       "type": "featured-collection",
       "settings": {
-        "title": "Best Seller",
-        "collection": "best-seller",
+        "title": "Men",
+        "collection": "tops-jacket",
         "products_to_show": 4,
         "show_view_all": true,
         "swipe_on_mobile": false,
-        "image_ratio": "portrait",
-        "show_secondary_image": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
         "add_image_padding": false,
         "show_vendor": false
       }
@@ -67,40 +67,30 @@
         "110db79a-e757-4c2e-939d-bc2c94ee0086": {
           "type": "product",
           "settings": {
-            "product": "denim-jacket",
+            "product": "chelsea-legging-set-pink",
             "secondary_background": false,
-            "second_image": false,
+            "second_image": true,
             "image_padding": false
           }
         },
         "a3dbdf56-0336-4742-bbe3-e27ca59dc6aa": {
           "type": "product",
           "settings": {
-            "product": "r-b-aviator",
+            "product": "mini-chelsea-legging-set-pink",
             "secondary_background": false,
-            "second_image": false,
-            "image_padding": false
-          }
-        },
-        "0b12c2cc-5b96-4109-b4e7-8dec0b8e0870": {
-          "type": "product",
-          "settings": {
-            "product": "red-tank-top",
-            "secondary_background": false,
-            "second_image": false,
+            "second_image": true,
             "image_padding": false
           }
         }
       },
       "block_order": [
         "110db79a-e757-4c2e-939d-bc2c94ee0086",
-        "a3dbdf56-0336-4742-bbe3-e27ca59dc6aa",
-        "0b12c2cc-5b96-4109-b4e7-8dec0b8e0870"
+        "a3dbdf56-0336-4742-bbe3-e27ca59dc6aa"
       ],
       "settings": {
-        "heading": "Matching Set",
-        "desktop_layout": "left",
-        "mobile_layout": "collage"
+        "heading": "Like Mom Like Me",
+        "desktop_layout": "right",
+        "mobile_layout": "column"
       }
     },
     "16303541849606b6db": {

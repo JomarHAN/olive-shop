@@ -48,8 +48,12 @@
             "heading": "Product Detail",
             "content": "<p>{{ product.metafields.my_fields.product_detail | metafield_tag }}<\/p>",
             "page": "",
-            "icon": "check_mark"
+            "icon": "eye"
           }
+        },
+        "1843dfc4-ae32-4d95-9a27-424ba3123619": {
+          "type": "like-mom-like-me",
+          "settings": {}
         },
         "e5a894f8-29f6-4646-af19-3e19928488bc": {
           "type": "collapsible_tab",
@@ -80,6 +84,7 @@
         "description",
         "share",
         "f0ac58a4-2641-4f97-ae98-9f5f25757040",
+        "1843dfc4-ae32-4d95-9a27-424ba3123619",
         "e5a894f8-29f6-4646-af19-3e19928488bc",
         "eef83f64-067d-44ee-a22c-0e87456baf38"
       ],
@@ -95,7 +100,7 @@
         "image_ratio": "adapt",
         "show_secondary_image": false,
         "add_image_padding": false,
-        "show_vendor": true
+        "show_vendor": false
       }
     }
   },
