@@ -55,51 +55,7 @@
           </div>
         </slider-component>
       {% else %}
-        <div class="images__group">
-          <div class="images__group-list">
-              {% for media in product.media %}
-              <!-- <script>
-                console.log({{media | json}});
-              </script> -->
-                <div class="images__group-list--item">
-                  <img 
-                    srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
-                            {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
-                            {% if media.preview_image.width >= 550 %}{{ media.preview_image | img_url: '550x' }} 550w,{% endif %}
-                            {% if media.preview_image.width >= 1100 %}{{ media.preview_image | img_url: '1100x' }} 1100w{% endif %}"
-                    src="{{media.src | image_url: '550x550'}}" 
-                    width="80"
-                    height="{{ 80 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                    sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
-                    loading="lazy"
-                    alt="{{ media.preview_image.alt | escape }}"
-                    id="{{media.id}}"
-                  />
-                </div>
-              {% endfor %}
-          </div>
-          <div class="images__group-display">
-            <div class="images__group-display--btn btn-prev"><</div>
-            {% for media in product.media %}
-              <div class="images__group-display--item">
-                <img 
-                  srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
-                          {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
-                          {% if media.preview_image.width >= 550 %}{{ media.preview_image | img_url: '550x' }} 550w,{% endif %}
-                          {% if media.preview_image.width >= 1100 %}{{ media.preview_image | img_url: '1100x' }} 1100w{% endif %}"
-                  src="{{media.src | image_url: '550x550'}}" 
-                  width="350"
-                  height="{{ 350 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                  sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
-                  loading="lazy"
-                  alt="{{ media.preview_image.alt | escape }}"
-                  id="{{media.id}}"
-                />
-              </div>
-            {% endfor %}
-            <div class="images__group-display--btn btn-next">></div>
-          </div>
-        </div>
+        {% render 'customize-media-product' media: media %}
       {% endunless %}
       {%- if first_3d_model -%}
         <button
@@ -521,94 +477,6 @@
 
   <script src="{{ 'product-model.js' | asset_url }}" defer></script>
 {%- endif -%}
-
-<!-- JS Slide Image -->
-<script type="text/javascript">
-  var imageList =  document.querySelectorAll('.images__group-list--item img')
-  var imageDisplay = document.querySelectorAll('.images__group-display--item img')
-  var btnNext = document.querySelector('.btn-next')
-  var btnPrev = document.querySelector('.btn-prev')
-  imageList[0].classList.add('active')
-  imageDisplay[0].classList.add('showup')
-  for (let i = 0; i < imageList.length; i++) {
-    imageList[i].addEventListener('click',() => {
-      for (let y = 0; y < imageList.length; y++) {
-        imageList[y].classList.remove('active')
-        imageDisplay[y].classList.remove('showup')
-      }
-      imageList[i].classList.add('active')
-      if(imageList[i].getAttribute('class') === 'active'){
-        imageDisplay[i].classList.add('showup')
-      }
-      if(i+1 === imageDisplay.length){
-        btnNext.classList.add('disappear')
-        btnPrev.classList.remove('disappear')
-      } else if(i === 0){
-        btnPrev.classList.add('disappear')
-        btnNext.classList.remove('disappear')
-      } else if(i <= imageDisplay.length && i > 0 ){
-        btnPrev.classList.remove('disappear')
-        btnNext.classList.remove('disappear')
-      }
-    })
-  }
-
-  
-  for (let i = 0; i < imageDisplay.length; i++) {
-    if(imageDisplay[i].getAttribute('class') === 'showup'){
-      if(i===0){
-        btnPrev.classList.add('disappear')
-      }
-    }
-  }
-  btnNext.addEventListener('click', () => {
-    if(btnPrev.getAttribute('class').includes('disappear')){
-      btnPrev.classList.remove('disappear')
-    }
-    for (let i = 0; i < imageDisplay.length; i++) {
-      const e = imageDisplay[i];
-      if(e.getAttribute('class') === 'showup'){
-        for (let y = 0; y < imageDisplay.length; y++) {
-          imageDisplay[y].classList.remove('showup')
-          imageList[y].classList.remove('active')
-        }
-        if(i >= 0){
-          i++
-          imageDisplay[i].classList.add('showup')
-          imageList[i].classList.add('active')
-        }
-        if(i+1 === imageDisplay.length){
-          btnNext.classList.add('disappear')
-        }
-      }
-    }
-  })
-  btnPrev.addEventListener('click',() => {
-    // console.log(btnNext.getAttribute('class'));
-    if(btnNext.getAttribute('class').includes('disappear')){
-      btnNext.classList.remove('disappear')
-    }
-    for (let i = 0; i < imageDisplay.length; i++) {
-      const e = imageDisplay[i];
-      if(e.getAttribute('class') === 'showup'){
-        for (let y = 0; y < imageDisplay.length; y++) {
-          imageDisplay[y].classList.remove('showup')
-          imageList[y].classList.remove('active')
-        }
-        if(i <= imageDisplay.length){
-          i--
-          imageDisplay[i].classList.add('showup')
-          imageList[i].classList.add('active')
-        }
-        if(i === 0){
-          btnPrev.classList.add('disappear')
-        }
-      }
-    }
-  })
-</script>
-
-
 
 {% schema %}
 {

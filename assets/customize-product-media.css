@@ -104,5 +104,6 @@
     }
     .images__group-display{
       flex: 1;
+      margin: 0;
     }
   }

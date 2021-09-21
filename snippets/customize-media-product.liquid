@@ -1,0 +1,45 @@
+<div class="images__group">
+    <div class="images__group-list">
+        {% for media in product.media %}
+        <!-- <script>
+          console.log({{media | json}});
+        </script> -->
+          <div class="images__group-list--item">
+            <img 
+              srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
+                      {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
+                      {% if media.preview_image.width >= 550 %}{{ media.preview_image | img_url: '550x' }} 550w,{% endif %}
+                      {% if media.preview_image.width >= 1100 %}{{ media.preview_image | img_url: '1100x' }} 1100w{% endif %}"
+              src="{{media.src | image_url: '550x550'}}" 
+              width="80"
+              height="{{ 80 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+              sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+              loading="lazy"
+              alt="{{ media.preview_image.alt | escape }}"
+              id="{{media.id}}"
+            />
+          </div>
+        {% endfor %}
+    </div>
+    <div class="images__group-display">
+      <div class="images__group-display--btn btn-prev"><</div>
+      {% for media in product.media %}
+        <div class="images__group-display--item">
+          <img 
+            srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
+                    {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
+                    {% if media.preview_image.width >= 550 %}{{ media.preview_image | img_url: '550x' }} 550w,{% endif %}
+                    {% if media.preview_image.width >= 1100 %}{{ media.preview_image | img_url: '1100x' }} 1100w{% endif %}"
+            src="{{media.src | image_url: '550x550'}}" 
+            width="350"
+            height="{{ 350 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+            sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+            loading="lazy"
+            alt="{{ media.preview_image.alt | escape }}"
+            id="{{media.id}}"
+          />
+        </div>
+      {% endfor %}
+      <div class="images__group-display--btn btn-next">></div>
+    </div>
+  </div>
