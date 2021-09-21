@@ -20,6 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 
   /* List left */
@@ -71,32 +72,32 @@
   .images__group-display--btn.disappear {
     visibility: hidden;
   }
-
-  @media screen and (width: 749px){
-    .images__group-list{
-      display: none;
-    }
-    .images__group-display{
-      flex: 1;
-      height: 600px;
-      margin: 0;
-      overflow: hidden
-    }
-    .images__group-display--btn{
-      background-color: #ffffff6e;
-    }
-    .images__group-display--btn.btn-prev:hover,
-    .images__group-display--btn.btn-next:hover {
-      background-color: white;
-    }
-  }
   
-  @media screen and (max-width: 767px){
+  @media screen and (max-width: 768px){
     .images__group{
-      flex-direction: column;
+      flex-direction: column-reverse;
+      height: 700px;
     }
     .images__group-list{
       flex-direction: row;
+    }
+    .images__group-list--item{
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 425px){
+    .images__group{
+      height: 560px;
+    }
+    .images__group-list{
+      flex: 0;
+    }
+    .images__group-display{
+      flex: 1;
+    }
+    .images__group-list--item{
+
     }
   }
 </style>
