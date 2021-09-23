@@ -88,7 +88,7 @@
     }
     .images__group-list{
       flex-direction: row;
-      justify-content: center;
+      justify-content: flex-start;
     }
     .images__group-list--item{
       height: auto;
